@@ -23,3 +23,7 @@ _ide_helper.php
 
 # for netbeans
 nbproject
+.babelrc
+.editorconfig
+.gitattributes
+.github
