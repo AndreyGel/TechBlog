@@ -1,0 +1,23 @@
+{% if recent_posts %}
+<!-- Recent posts -->
+<div class="col-lg-12">
+    <div class="sidebar-item recent-posts">
+        <div class="sidebar-heading">
+            <h2>{{ this.theme.recent_posts_title }}</h2>
+        </div>
+        <div class="content">
+            <ul>
+{% for recent_post in recent_posts %}
+                <li>
+                    <a href="/blog/post/{{ recent_post.slug }}">
+                        <h5>{{ recent_post.title }}</h5>
+                        <span>{{ recent_post.published_at|date('M d, Y') }}</span>
+                    </a>
+                </li>
+{% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- /Recent posts -->
+{% endif %}

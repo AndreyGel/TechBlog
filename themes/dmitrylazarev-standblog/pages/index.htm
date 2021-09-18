@@ -1,0 +1,66 @@
+url = "/"
+layout = "default"
+==
+use RainLab\Blog\Models\Category;
+use RainLab\Blog\Models\Post;
+function onStart()
+{
+    $this['url'] = $this->url;
+    $this['categories'] = Category::all();
+    $recent_posts = Post::orderBy('published_at','desc')->where('published','1')->get();
+    $this['recent_posts'] = $recent_posts;
+    $this['index_posts'] = $recent_posts;
+
+    $banner_posts_ids = array();
+    if ($this->theme->index_banners_switch){
+        $banner_posts_ids = array_filter([1,2,3,4,5],function($item){
+            if (($this->theme->index_banner_id.$item) > 0)
+            {
+                return true;
+            }
+            return false;
+        });
+    }
+    $this['banner_posts'] = Post::whereIn('id', $banner_posts_ids)->where('published', '1')->get();
+}
+==
+    <!-- Page Content -->
+{% if this.theme.index_banners_switch %}
+    <!-- Banner Starts Here -->
+    <div class="main-banner header-text">
+      <div class="container-fluid">
+        <div class="owl-banner owl-carousel">
+	  {% for banner_post in banner_posts %}
+	  {% partial "banner_item" post=banner_post %}
+	  {% endfor %}
+        </div>
+      </div>
+    </div>
+    <!-- Banner Ends Here -->
+{% endif %}
+{% partial "ads" %}
+    <section class="blog-posts">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="all-blog-posts">
+              <div class="row">
+		{% for i in [2,1,0] %}
+		    {% if index_posts[i] %}
+		        {% partial "index_post" post=index_posts[i] %}
+		    {% endif %}
+		{% endfor %}
+                <div class="col-lg-12">
+                  <div class="main-button">
+                    <a href="/blog">View All Posts</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+	    {% partial "sidebar1" %}
+          </div>
+        </div>
+      </div>
+    </section>

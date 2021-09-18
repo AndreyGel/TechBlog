@@ -1,0 +1,14 @@
+{% if categories %}
+<div class="sidebar-item categories">
+    <div class="sidebar-heading">
+        <h2>{{ this.theme.categories_title }}</h2>
+    </div>
+    <div class="content">
+        <ul>
+    {% for category in categories %}
+            <li><a href="/blog/category/{{ category.slug }}">- {{ category.name }}</a></li>
+    {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endif %}

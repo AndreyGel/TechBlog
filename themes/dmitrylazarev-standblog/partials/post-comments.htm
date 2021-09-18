@@ -1,0 +1,24 @@
+<!-- Comments -->
+<div class="col-lg-12">
+    <div class="sidebar-item comments">
+        <div class="sidebar-heading">
+            <h2>{{ comments|length }}</h2>
+        </div>
+        <div class="content">
+            <ul>
+{% for comment in comments %}
+                <li>
+                    <div class="author-thumb">
+                        <img src="{{ comment.author.image.path }}" alt="{{ comment.author.name }}">
+                    </div>
+                    <div class="right-content">
+                        <h4>{{ comment.author.name }}<span>{{ comment.author.published_at }} </span></h4>
+                        <p>{{ comment.content }}</p>
+                    </div>
+                </li>
+{% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- /Comments -->

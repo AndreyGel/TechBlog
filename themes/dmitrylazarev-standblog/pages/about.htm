@@ -1,0 +1,53 @@
+url = "/about"
+layout = "default"
+==
+==
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+    <div class="heading-page header-text">
+      <section class="page-heading">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="text-content">
+                <h4>{{ this.theme.about_title }}</h4>
+                <h2>{{ this.theme.about_subtitle }}</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>    
+    <!-- Banner Ends Here -->
+    <section class="about-us">
+      <div class="container">      	
+        <div class="row">
+          <div class="col-lg-12">
+	    {% if this.theme.about_image %}
+            <img src="{{ this.theme.about_image.path }}" alt="">
+	    {% endif %}
+	    {# if this.theme.about_text #}
+	    {{ this.theme.about_text|raw }}
+	    {# endif #}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <ul class="social-icons">
+	      {% if this.theme.facebook_href %}
+              <li><a href="{{ this.theme.facebook_href }}"><i class="fa fa-facebook"></i></a></li>
+	      {% endif %}
+	      {% if this.theme.twitter_href %}
+              <li><a href="{{ this.theme.twitter_href }}"><i class="fa fa-twitter"></i></a></li>
+	      {% endif %}
+	      {% if this.theme.behance_href %}
+              <li><a href="{{ this.theme.behance_href }}"><i class="fa fa-behance"></i></a></li>
+	      {% endif %}
+	      {% if this.theme.linkedin_href %}
+              <li><a href="{{ this.theme.linkedin_href }}"><i class="fa fa-linkedin"></i></a></li>
+	      {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>

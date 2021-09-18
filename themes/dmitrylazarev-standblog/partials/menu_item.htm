@@ -1,0 +1,11 @@
+{% if url == href %}
+    <li class="nav-item active">
+        <a class="nav-link" href="{{ href }}">{{ title }}
+            <span class="sr-only">(current)</span>
+        </a>
+    </li>
+{% else %}
+    <li class="nav-item">
+        <a class="nav-link" href="{{ href }}">{{ title }}</a>
+    </li>
+{% endif %}

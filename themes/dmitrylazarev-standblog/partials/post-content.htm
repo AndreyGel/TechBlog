@@ -1,0 +1,45 @@
+<!-- Post content -->
+<div class="col-lg-12">
+    <div class="blog-post">
+        <div class="blog-thumb">
+{% if post.featured_images.count %}
+    {% for image in post.featured_images %}
+            <img src="{{ image.path }}" alt="{{ image.description }}">
+    {% endfor %}
+{% endif %}
+        </div>
+        <div class="down-content">
+            <a href="{{ url }}"><h4>{{ post.title }}</h4></a>
+            <ul class="post-info">
+{% if post.user.first_name and post.user.last_name %}
+                <li><a href="#">{{ post.user.first_name }} {{ post.user.last_name }}</a></li>
+{% else %}
+                <li><a href="#">Admin</a></li>
+{% endif %}
+                <li><a href="#">{{ post.published_at|date('M d, Y') }}</a></li>
+{% if comments %}
+                <li><a href="#">10 Comments</a></li>
+{% endif %}
+            </ul>
+            {{ post.content_html|raw }}
+            <div class="post-options">
+                <div class="row">
+                    <div class="col-6">
+{% if post.categories.count %}
+                        <ul class="post-tags">
+                            <li><i class="fa fa-tags"></i></li>
+    {% for category in post.categories %}
+                            <li><a href="/blog/category/{{ category.slug }}">{{ category.name }}</a>{% if not loop.last %},{% endif %}</li>
+    {% endfor %}
+                        </ul>
+{% endif %}
+                    </div>
+                    <div class="col-6">
+		      {# partial "post-shares" #}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Post content -->

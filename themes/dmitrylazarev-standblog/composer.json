@@ -1,0 +1,8 @@
+{
+  "name": "dmitrylazarev/standblog-theme",
+  "type": "october-theme",
+  "description": "A simple template for your blog",
+  "require": {
+    "composer/installers": "~1.0"
+  }
+}

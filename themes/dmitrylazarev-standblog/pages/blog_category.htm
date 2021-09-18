@@ -1,0 +1,105 @@
+url = "/blog/category/:slug"
+layout = "default"
+[blogPosts]
+categoryFilter = {{ :slug }}
+==
+use RainLab\Blog\Models\Category;
+use RainLab\Blog\Models\Post;
+
+function onStart()
+{
+    $this['url'] = $this->url;
+    $this['categories'] = Category::all();
+    $this['recent_posts'] = Post::orderBy('published_at','desc')->where('published','1')->get();
+    $posts = Post::orderBy('published_at','desc')->with('categories')->where('published','1')->get();
+}
+==
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+    <div class="heading-page header-text">
+      <section class="page-heading">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="text-content">
+                <h4>{{ this.theme.blog_title }}</h4>
+                <h2>{{ this.theme.blog_subtitle }}</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>    
+    <!-- Banner Ends Here -->
+{% partial "ads" %}
+    <section class="blog-posts grid-system">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="all-blog-posts">
+              <div class="row">
+		{% for post in posts %}
+                <div class="col-lg-6">
+                  <div class="blog-post">
+                    <div class="blog-thumb">
+		      {% if this.theme.blog_image %}
+		      <img src="{{ this.theme.blog_image }}" alt="{{ this.theme.blog_title }}">
+		      {% else %}
+                      <img src="{{ 'assets/images/blog-thumb-01.jpg'|theme }}" alt="{{ this.theme.blog_title }}">
+		      {% endif %}
+                    </div>
+                    <div class="down-content">
+                      <a href="/blog/post/{{ post.slug }}"><h4>{{ post.title }}</h4></a>
+                      <ul class="post-info">
+			{% if post.author %}
+                        <li><a href="#">{{ post.author }}</a></li>
+			{% endif %}
+                        <li><a href="#">{{ post.published_at|date('M d, Y') }}</a></li>
+			{% if post.comments %}
+                        <li><a href="#">{{ post.comments|length }} Comments</a></li>
+			{% endif %}
+                      </ul>
+                      {{ post.summary|raw }}
+                      <div class="post-options">
+                        <div class="row">
+                          <div class="col-lg-12">
+			    {% if post.categories.count %}
+                            <ul class="post-tags">
+                              <li><i class="fa fa-tags"></i></li>
+			      {% for category in post.categories %}
+                              <li><a href="/blog/category/{{ category.slug }}">{{ category.name }}</a>{% if not loop.last %},{% endif %}</li>
+			      {% endfor %}
+                            </ul>
+			    {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+		{% else %}
+		<div class="col-lg-6">
+		  {{ __SELF__.noPostsMessage }}
+		</div>
+		{% endfor %}
+		
+                <div class="col-lg-12">
+                  <ul class="page-numbers">
+		    {# TODO #}
+		    {#
+                    <li><a href="#">1</a></li>
+                    <li class="active"><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+		    #}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+	    {% partial "sidebar1" %}
+          </div>
+        </div>
+      </div>
+    </section>

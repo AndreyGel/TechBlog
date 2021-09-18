@@ -1,0 +1,6 @@
+name: 'Stand Blog'
+author: 'Dmitry Lazarev'
+homepage: 'https://stand-blog.lazarev-dmitry.ru'
+description: ''
+code: Standblog
+form: theme_fields.yaml

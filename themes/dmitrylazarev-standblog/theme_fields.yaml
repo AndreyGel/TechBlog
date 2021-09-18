@@ -1,0 +1,253 @@
+tabs:
+ fields:
+# General tab
+  site_description:
+   label: Website description
+   default:
+   tab: General
+   type: text
+  site_name:
+   label: Website name
+   default: Stand Blog
+   tab: General
+   type: text
+  home_page_title:
+   label: Home page title
+   default: Home
+   tab: General
+   type: text
+  about_page_title:
+   label: About page title
+   default: About
+   tab: General
+   type: text
+  blog_page_title:
+   label: Blog page title
+   default: Blog
+   tab: General
+   type: text
+  contact_page_title:
+   label: Contact page title
+   default: Contact
+   tab: General
+   type: text
+#  search_box_placeholder:
+#   label: Search box placeholder
+#   default: Type to search...
+#   tab: General
+#   type: text
+#  search_box_action:
+#   label: Search box action
+#   default: /search
+#   tab: General
+#   type: text
+  recent_posts_title:
+   label: Recent posts title
+   default: Recent posts
+   tab: General
+   type: text
+  categories_title:
+   label: Categories title
+   default: Categories
+   tab: General
+   type: text
+  google_analytics_tag:
+   label: Google Analytics Tag
+   default:
+   tab: General
+   type: text
+#  tags_title:
+#   label: Tags title
+#   default: Tag Clouds
+#   tab: General
+#   type: text
+  
+# Social tab
+  facebook_href:
+   label: Facebook
+   tab: Social
+   type: text
+   default:
+  twitter_href:
+   label: Twitter
+   tab: Social
+   type: text
+   default:
+  behance_href:
+   label: behance
+   tab: Social
+   type: text
+   default:
+  linkedin_href:
+   label: LinkedIn
+   tab: Social
+   type: text
+   default:
+  dribbble_href:
+   label: Dribbble
+   tab: Social
+   type: text
+   default:
+# About tab
+  about_title:
+   label: Page Title
+   default: About
+   tab: About
+   type: text
+  about_subtitle:
+   label: Page Subtitle
+   default: More about us
+   tab: About
+   type: text
+  about_text:
+   label: Text block
+   tab: About
+   type: richeditor
+   default:
+  about_image:
+   label: Image
+   default:
+   tab: About
+   type: fileupload
+   mode: image
+   imageWidth: 310
+   imageHeight: 310
+# Blog tab
+  blog_title:
+   label: Blog title
+   default: Blog
+   tab: Blog
+   type: text
+  blog_subtitle:
+   label: Blog subtitle
+   default: Blog
+   tab: Blog
+   type: text
+# Contact tab
+  contact_title:
+   label: Contact title
+   default: Contact Title
+   tab: Contact
+   type: text
+  contact_subtitle:
+   label: Contact Subtitle
+   default: Contact Subtitle
+   tab: Contact
+   type: text
+  contact_send_message_text:
+   label: Send Message
+   default: Send a message
+   tab: Contact
+   type: text
+  contact_form_name_field:
+   label: Name field
+   default: Your name
+   tab: Contact
+   type: text
+  contact_form_email_field:
+   label: Email field
+   default: Your email
+   tab: Contact
+   type: text
+  contact_form_subject_field:
+   label: Subject field
+   default: Subject of your message
+   tab: Contact
+   type: text
+  contact_form_message_field:
+   label: Message field
+   default: Your message
+   tab: Contact
+   type: text
+  contact_info_switch:
+   label: Show contact info
+   default: false
+   tab: Contact
+   type: switch
+  contact_info_title:
+   label: Contact info title
+   default: Contact Information
+   tab: Contact
+   type: text
+  contact_info_phonenumber:
+   label: Contact info phonenumber
+   default:
+   tab: Contact
+   type: text
+  contact_info_email:
+   label: Contact info email address
+   default:
+   tab: Contact
+   type: text
+  contact_info_address:
+   label: Contact info address
+   default:
+   tab: Contact
+   type: text
+# Post tab
+  post_subtitle:
+   label: Subtitle
+   default: Post details
+   tab: Post
+   type: text
+  post_comment_section_title:
+   label: Comment section title
+   default: Your comment
+   tab: Post
+   type: text
+  post_comment_form_name:
+   label: Comment form name
+   default: Your name
+   tab: Post
+   type: text
+  post_comment_form_email:
+   label: Comment form email
+   default: Your email
+   tab: Post
+   type: text
+  post_comment_form_subject:
+   label: Comment form subject
+   default: Subject
+   tab: Post
+   type: text
+  post_comment_form_message:
+   label: Comment form message
+   default: Type your message
+   tab: Post
+   type: text
+  post_comment_form_submit_text:
+   label: Submit button text
+   default: Submit
+   tab: Post
+   type: text
+# Index tab
+  index_banners_switch:
+   label: Use banners on an index page
+   default: true
+   tab: Index
+   type: switch
+  index_banner_id1:
+   label: ID of a proper post
+   default:
+   tab: Index
+   type: text
+  index_banner_id2:
+   label: ID of a proper post
+   default:
+   tab: Index
+   type: text
+  index_banner_id3:
+   label: ID of a proper post
+   default:
+   tab: Index
+   type: text
+  index_banner_id4:
+   label: ID of a proper post
+   default:
+   tab: Index
+   type: text
+  index_banner_id5:
+   label: ID of a proper post
+   default:
+   tab: Index
+   type: text

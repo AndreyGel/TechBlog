@@ -1,0 +1,51 @@
+<div class="col-lg-12">
+    <div class="blog-post">
+        <div class="blog-thumb">
+{% if post.featured_images|length > 0 %}
+            <img src="{{ post.featured_images[0].path }}" alt="{{ post.title }}">
+{% else %}
+            <img src="{{ 'assets/images/blog-post-01.jpg'|theme }}" alt="{{ post.title }}">
+{% endif %}
+        </div>
+        <div class="down-content">
+{% if post.categories.count %}
+            <span>{{ post.categories[0].name }}</span>
+{% endif %}
+            <a href="/blog/post/{{ post.slug }}"><h4>{{ post.title }}</h4></a>
+            <ul class="post-info">
+{% if post.author %}
+                <li><a href="#">{{ post.author }}</a></li>
+{% endif %}
+                <li><a href="#">{{ post.published_at|date('M d, Y') }}</a></li>
+{% if post.comments %}
+                <li><a href="#">{{ post.comments|length }} Comments</a></li>
+{% endif %}
+            </ul>
+{{ post.summary|raw }}
+            <div class="post-options">
+                <div class="row">
+                    <div class="col-6">
+{% if post.categories.count %}
+                        <ul class="post-tags">
+                            <li><i class="fa fa-tags"></i></li>
+    {% for category in post.categories %}
+                            <li><a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %},{% endif %}</li>
+    {% endfor %}
+                        </ul>
+{% endif %}
+                    </div>
+                    <div class="col-6">
+		      {# TODO #}
+		      {# 
+                        <ul class="post-share">
+                            <li><i class="fa fa-share-alt"></i></li>
+                            <li><a href="#">Facebook</a>,</li>
+                            <li><a href="#"> Twitter</a></li>
+                        </ul>
+		       #}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
